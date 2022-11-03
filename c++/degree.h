@@ -8,6 +8,12 @@ namespace degree
     NETWORK,
     SOFTWARE
   };
+
+  static const char *degreeProgramStrings[] = {
+    "SECURITY",
+    "NETWORK",
+    "SOFTWARE"
+  };
 }
 
 #endif

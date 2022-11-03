@@ -3,6 +3,7 @@
 
 using namespace std;
 using namespace degree;
+using namespace roster;
 
 int main() {
   const string studentData[] = {
@@ -11,7 +12,17 @@ int main() {
       "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
       "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
       "010534644,Ted,Tran,TedTran2019@gmail.com,27,1,1,1,SOFTWARE"};
-  cout << SECURITY;
-  cout << "Potato";
+  cout << "Scripting and Programming - Applications - C867, C++, 010534644, "
+       << "Ted Tran" << endl;
+  Roster classRoster;
+  // Add each student to classRoster
+  classRoster.printAll();
+  classRoster.printInvalidEmails();
+  // Loop through classRosterArray and for each element: printAverageDays
+  classRoster.printByDegreeProgram(SOFTWARE);
+  classRoster.remove("A3");
+  classRoster.printAll();
+  classRoster.remove("A3");
+  // Memory in Roster is freed automatically due to smart pointers
   return 0;
 }
