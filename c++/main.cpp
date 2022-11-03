@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-using namespace Degree;
+using namespace degree;
 
 int main() {
   const string studentData[] = {

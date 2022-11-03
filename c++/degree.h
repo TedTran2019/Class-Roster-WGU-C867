@@ -1,7 +1,7 @@
 #ifndef DEGREE_H
 #define DEGREE_H
 
-namespace Degree
+namespace degree
 {
   enum DegreeProgram {
     SECURITY,

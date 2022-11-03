@@ -4,22 +4,22 @@
 #include "student.h"
 #include <vector>
 
-namespace Roster {
+namespace roster {
 class Roster {
 private:
-  std::vector<Student::Student> classRosterArray;
+  std::vector<student::Student> m_classRosterArray;
 
 public:
   Roster();
   void add(std::string studentID, std::string firstName, std::string lastName,
            std::string emailAddress, int age, int daysInCourse1,
            int daysInCourse2, int daysInCourse3,
-           Degree::DegreeProgram degreeProgram);
+           degree::DegreeProgram degreeProgram);
   void remove(std::string studentID);
   void printAll();
   void printAverageDaysInCourse(std::string studentID);
   void printInvalidEmails();
-  void printByDegreeProgram(Degree::DegreeProgram degreeProgram);
+  void printByDegreeProgram(degree::DegreeProgram degreeProgram);
 };
 } // namespace Roster
 
