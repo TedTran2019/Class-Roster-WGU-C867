@@ -16,6 +16,7 @@ int main() {
        << "Ted Tran" << endl;
   Roster classRoster;
   // Add each student to classRoster
+  // classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, 30, 35, 40, SECURITY);
   classRoster.printAll();
   classRoster.printInvalidEmails();
   // Loop through classRosterArray and for each element: printAverageDays
@@ -23,6 +24,5 @@ int main() {
   classRoster.remove("A3");
   classRoster.printAll();
   classRoster.remove("A3");
-  // Memory in Roster is freed automatically due to smart pointers
   return 0;
 }
