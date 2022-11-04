@@ -65,6 +65,6 @@ int main() {
   classRoster.remove("A3");
   classRoster.printAll();
   classRoster.remove("A3");
-  // Make sure to free all allocated memory
+  // C++ will implicitly call destructors when the object passes out of scope
   return 0;
 }

@@ -8,6 +8,12 @@ using namespace std;
 
 Roster::Roster() {};
 
+// Unnecessary, but required on rubric
+// I think clear() is cleaner than iterating through and calling delete
+Roster::~Roster() {
+  m_classRosterArray.clear();
+};
+
 void Roster::add(string studentID, string firstName, string lastName,
                  string emailAddress, int age, int daysInCourse1,
                  int daysInCourse2, int daysInCourse3,
@@ -19,7 +25,7 @@ void Roster::add(string studentID, string firstName, string lastName,
 }
 
 void Roster::remove(string studentID) {
-  for (int i = 0; i < m_classRosterArray.size(); i++) {
+  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
     if (m_classRosterArray[i].getStudentID() == studentID) {
       m_classRosterArray.erase(m_classRosterArray.begin() + i);
       return;
@@ -29,13 +35,13 @@ void Roster::remove(string studentID) {
 }
 
 void Roster::printAll() {
-  for (int i = 0; i < m_classRosterArray.size(); i++) {
+  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
     m_classRosterArray[i].print();
   }
 }
 
 void Roster::printAverageDaysInCourse(string studentID) {
-  for (int i = 0; i < m_classRosterArray.size(); i++) {
+  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
     if (m_classRosterArray[i].getStudentID() == studentID) {
       int *daysInCourses = m_classRosterArray[i].getDaysInCourses();
       int averageDaysInCourse =
@@ -51,7 +57,7 @@ void Roster::printAverageDaysInCourse(string studentID) {
 // valid email: include an ('@') and period ('.'), exclude (' ')
 // I could just use a REGEX here like i did in my Ruby version
 void Roster::printInvalidEmails() {
-  for (int i = 0; i < m_classRosterArray.size(); i++) {
+  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
     string emailAddress = m_classRosterArray[i].getEmailAddress();
     if (emailAddress.find('@') == string::npos ||
         emailAddress.find('.') == string::npos ||
@@ -62,7 +68,7 @@ void Roster::printInvalidEmails() {
 }
 
 void Roster::printByDegreeProgram(degree::DegreeProgram degreeProgram) {
-  for (int i = 0; i < m_classRosterArray.size(); i++) {
+  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
     if (m_classRosterArray[i].getDegreeProgram() == degreeProgram) {
       m_classRosterArray[i].print();
     }
