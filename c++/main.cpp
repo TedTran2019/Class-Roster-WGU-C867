@@ -1,5 +1,5 @@
-#include "roster.h"
 #include "roster.cpp"
+#include "roster.h"
 #include <iostream>
 
 using namespace std;
@@ -38,8 +38,9 @@ void addStudentsToClassRoster(Roster *classRoster, const string studentData[]) {
       degreeProgram = SOFTWARE;
     }
 
-    (*classRoster).add(studentID, firstName, lastName, emailAddress, age,
-                    daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+    (*classRoster)
+        .add(studentID, firstName, lastName, emailAddress, age, daysInCourse1,
+             daysInCourse2, daysInCourse3, degreeProgram);
   }
 }
 
@@ -53,13 +54,14 @@ int main() {
 
   cout << "Scripting and Programming - Applications - C867, C++, 010534644, "
        << "Ted Tran" << endl;
-  
+
   Roster classRoster;
   addStudentsToClassRoster(&classRoster, studentData);
   classRoster.printAll();
   classRoster.printInvalidEmails();
   for (int i = 0; i < 5; i++) {
-    classRoster.printAverageDaysInCourse(classRoster.getClassRosterArray()[i].getStudentID());
+    classRoster.printAverageDaysInCourse(
+        classRoster.getClassRosterArray()[i].getStudentID());
   }
   classRoster.printByDegreeProgram(SOFTWARE);
   classRoster.remove("A3");

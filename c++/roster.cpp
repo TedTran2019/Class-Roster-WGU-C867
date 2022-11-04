@@ -6,13 +6,11 @@ using namespace roster;
 using namespace student;
 using namespace std;
 
-Roster::Roster() {};
+Roster::Roster(){};
 
 // Unnecessary, but required on rubric
 // I think clear() is cleaner than iterating through and calling delete
-Roster::~Roster() {
-  m_classRosterArray.clear();
-};
+Roster::~Roster() { m_classRosterArray.clear(); };
 
 void Roster::add(string studentID, string firstName, string lastName,
                  string emailAddress, int age, int daysInCourse1,

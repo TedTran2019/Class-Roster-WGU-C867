@@ -36,6 +36,6 @@ public:
   void setdaysInCourses(int newDaysInCourses[3]);
   void setdegreeProgram(degree::DegreeProgram newDegreeProgram);
 };
-} // namespace Student
+} // namespace student
 
 #endif
