@@ -1,11 +1,12 @@
 #include "roster.h"
+#include "student.cpp"
 #include <iostream>
 
 using namespace roster;
 using namespace student;
 using namespace std;
 
-Roster::Roster() { m_classRosterArray = vector<student::Student>(); };
+Roster::Roster() {};
 
 void Roster::add(string studentID, string firstName, string lastName,
                  string emailAddress, int age, int daysInCourse1,
@@ -67,3 +68,5 @@ void Roster::printByDegreeProgram(degree::DegreeProgram degreeProgram) {
     }
   }
 }
+
+vector<Student> Roster::getClassRosterArray() { return m_classRosterArray; }

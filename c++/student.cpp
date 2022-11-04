@@ -22,12 +22,12 @@ Student::Student(string studentID, string firstName, string lastName,
 
 // Would prefer to use format header or libfmt here
 void Student::print() {
-  cout << m_studentID << "\t";
-  cout << "First Name: " << m_firstName << "\t";
-  cout << "Last Name: " << m_lastName << "\t";
-  cout << "Age: " << m_age << "\t";
+  cout << m_studentID << " \t ";
+  cout << "First Name: " << m_firstName << " \t ";
+  cout << "Last Name: " << m_lastName << " \t ";
+  cout << "Age: " << m_age << " \t ";
   cout << "daysInCourse: {" << m_daysInCourses[0] << ", " << m_daysInCourses[1]
-       << ", " << m_daysInCourses[2] << "}\t";
+       << ", " << m_daysInCourses[2] << "} \t ";
   cout << "Degree Program: " << degreeProgramStrings[m_degreeProgram] << endl;
 }
 

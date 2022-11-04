@@ -20,6 +20,7 @@ public:
   void printAverageDaysInCourse(std::string studentID);
   void printInvalidEmails();
   void printByDegreeProgram(degree::DegreeProgram degreeProgram);
+  std::vector<student::Student> getClassRosterArray();
 };
 } // namespace Roster
 
