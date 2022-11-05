@@ -53,7 +53,7 @@ void Roster::printAverageDaysInCourse(string studentID) {
 }
 
 // valid email: include an ('@') and period ('.'), exclude (' ')
-// I could just use a REGEX here like i did in my Ruby version
+// I could just use a REGEX here like I did in my Ruby version
 void Roster::printInvalidEmails() {
   for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
     string emailAddress = m_classRosterArray[i].getEmailAddress();
