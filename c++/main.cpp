@@ -60,13 +60,11 @@ int main() {
   classRoster.printAll();
   classRoster.printInvalidEmails();
   for (int i = 0; i < 5; i++) {
-    classRoster.printAverageDaysInCourse(
-        classRoster.getClassRosterArray()[i].getStudentID());
+    classRoster.printAverageDaysInCourse(classRoster.getStudent(i).getStudentID());
   }
   classRoster.printByDegreeProgram(SOFTWARE);
   classRoster.remove("A3");
   classRoster.printAll();
   classRoster.remove("A3");
-  // C++ will implicitly call destructors when the object passes out of scope
   return 0;
 }

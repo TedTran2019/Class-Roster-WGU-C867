@@ -6,26 +6,33 @@ using namespace roster;
 using namespace student;
 using namespace std;
 
-Roster::Roster(){};
+Roster::Roster(){ m_nbrStudents = 0; };
 
-// Unnecessary, but required on rubric
-// I think clear() is cleaner than iterating through and calling delete
-Roster::~Roster() { m_classRosterArray.clear(); };
+Roster::~Roster() { 
+  for (int i = 0; i < m_nbrStudents; i++) {
+    delete classRosterArray[i];
+  }
+};
 
 void Roster::add(string studentID, string firstName, string lastName,
                  string emailAddress, int age, int daysInCourse1,
                  int daysInCourse2, int daysInCourse3,
                  degree::DegreeProgram degreeProgram) {
-  Student newStudent =
-      Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1,
+  Student *newStudent =
+      new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1,
               daysInCourse2, daysInCourse3, degreeProgram);
-  m_classRosterArray.push_back(newStudent);
+  classRosterArray[m_nbrStudents] = newStudent;
+  m_nbrStudents++;
 }
 
 void Roster::remove(string studentID) {
-  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
-    if (m_classRosterArray[i].getStudentID() == studentID) {
-      m_classRosterArray.erase(m_classRosterArray.begin() + i);
+  for (int i = 0; i < m_nbrStudents; i++) {
+    if (getStudent(i).getStudentID() == studentID) {
+      delete classRosterArray[i];
+      if (i < m_nbrStudents - 1) {
+        classRosterArray[i] = classRosterArray[m_nbrStudents - 1];
+      }
+      m_nbrStudents--;
       return;
     }
   }
@@ -33,15 +40,15 @@ void Roster::remove(string studentID) {
 }
 
 void Roster::printAll() {
-  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
-    m_classRosterArray[i].print();
+  for (int i = 0; i < m_nbrStudents; i++) {
+    getStudent(i).print();
   }
 }
 
 void Roster::printAverageDaysInCourse(string studentID) {
-  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
-    if (m_classRosterArray[i].getStudentID() == studentID) {
-      int *daysInCourses = m_classRosterArray[i].getDaysInCourses();
+  for (int i = 0; i < m_nbrStudents; i++) {
+    if (getStudent(i).getStudentID() == studentID) {
+      int *daysInCourses = getStudent(i).getDaysInCourses();
       int averageDaysInCourse =
           (daysInCourses[0] + daysInCourses[1] + daysInCourses[2]) / 3;
       cout << "Average days in course for student #" << studentID << ": "
@@ -52,11 +59,9 @@ void Roster::printAverageDaysInCourse(string studentID) {
   cout << "A student with this ID was not found." << endl;
 }
 
-// valid email: include an ('@') and period ('.'), exclude (' ')
-// I could just use a REGEX here like I did in my Ruby version
 void Roster::printInvalidEmails() {
-  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
-    string emailAddress = m_classRosterArray[i].getEmailAddress();
+  for (int i = 0; i < m_nbrStudents; i++) {
+    string emailAddress = getStudent(i).getEmailAddress();
     if (emailAddress.find('@') == string::npos ||
         emailAddress.find('.') == string::npos ||
         emailAddress.find(' ') != string::npos) {
@@ -66,11 +71,11 @@ void Roster::printInvalidEmails() {
 }
 
 void Roster::printByDegreeProgram(degree::DegreeProgram degreeProgram) {
-  for (unsigned long i = 0; i < m_classRosterArray.size(); i++) {
-    if (m_classRosterArray[i].getDegreeProgram() == degreeProgram) {
-      m_classRosterArray[i].print();
+  for (int i = 0; i < m_nbrStudents; i++) {
+    if (getStudent(i).getDegreeProgram() == degreeProgram) {
+      getStudent(i).print();
     }
   }
 }
 
-vector<Student> Roster::getClassRosterArray() { return m_classRosterArray; }
+Student Roster::getStudent(int idx) { return *classRosterArray[idx]; }

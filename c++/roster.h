@@ -7,7 +7,8 @@
 namespace roster {
 class Roster {
 private:
-  std::vector<student::Student> m_classRosterArray;
+  student::Student *classRosterArray[5];
+  int m_nbrStudents;
 
 public:
   Roster();
@@ -21,7 +22,7 @@ public:
   void printAverageDaysInCourse(std::string studentID);
   void printInvalidEmails();
   void printByDegreeProgram(degree::DegreeProgram degreeProgram);
-  std::vector<student::Student> getClassRosterArray();
+  student::Student getStudent(int idx);
 };
 } // namespace roster
 
