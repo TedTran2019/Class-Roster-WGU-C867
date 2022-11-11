@@ -18,9 +18,10 @@ void Roster::add(string studentID, string firstName, string lastName,
                  string emailAddress, int age, int daysInCourse1,
                  int daysInCourse2, int daysInCourse3,
                  degree::DegreeProgram degreeProgram) {
+  int daysInCourses[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
   Student *newStudent =
-      new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1,
-              daysInCourse2, daysInCourse3, degreeProgram);
+      new Student(studentID, firstName, lastName, emailAddress, age, daysInCourses,
+                  degreeProgram);
   classRosterArray[m_nbrStudents] = newStudent;
   m_nbrStudents++;
 }

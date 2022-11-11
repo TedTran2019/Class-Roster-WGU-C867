@@ -17,8 +17,7 @@ private:
 
 public:
   Student(std::string studentID, std::string firstName, std::string lastName,
-          std::string emailAddress, int age, int daysInCourse1,
-          int daysInCourse2, int daysInCourse3,
+          std::string emailAddress, int age, int daysInCourse[3],
           degree::DegreeProgram degreeProgram);
   void print();
   std::string getStudentID();

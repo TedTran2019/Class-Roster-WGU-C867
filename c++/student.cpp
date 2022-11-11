@@ -6,21 +6,19 @@ using namespace std;
 using namespace degree;
 
 Student::Student(string studentID, string firstName, string lastName,
-                 string emailAddress, int age, int daysInCourse1,
-                 int daysInCourse2, int daysInCourse3,
+                 string emailAddress, int age, int daysInCourses[3],
                  DegreeProgram degreeProgram) {
   m_studentID = studentID;
   m_firstName = firstName;
   m_lastName = lastName;
   m_emailAddress = emailAddress;
   m_age = age;
-  m_daysInCourses[0] = daysInCourse1;
-  m_daysInCourses[1] = daysInCourse2;
-  m_daysInCourses[2] = daysInCourse3;
+  for (int i = 0; i < 3; i++) {
+    m_daysInCourses[i] = daysInCourses[i];
+  }
   m_degreeProgram = degreeProgram;
 }
 
-// Would prefer to use format header or libfmt here
 void Student::print() {
   cout << m_studentID << " \t ";
   cout << "First Name: " << m_firstName << " \t ";
