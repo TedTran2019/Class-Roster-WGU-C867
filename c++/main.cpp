@@ -59,7 +59,7 @@ int main() {
   addStudentsToClassRoster(&classRoster, studentData);
   classRoster.printAll();
   classRoster.printInvalidEmails();
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < classRoster.getNbrStudents(); i++) {
     classRoster.printAverageDaysInCourse(classRoster.getStudent(i).getStudentID());
   }
   classRoster.printByDegreeProgram(SOFTWARE);

@@ -79,3 +79,5 @@ void Roster::printByDegreeProgram(degree::DegreeProgram degreeProgram) {
 }
 
 Student Roster::getStudent(int idx) { return *classRosterArray[idx]; }
+
+int Roster::getNbrStudents() { return m_nbrStudents; }

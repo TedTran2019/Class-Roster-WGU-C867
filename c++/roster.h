@@ -23,6 +23,7 @@ public:
   void printInvalidEmails();
   void printByDegreeProgram(degree::DegreeProgram degreeProgram);
   student::Student getStudent(int idx);
+  int getNbrStudents();
 };
 } // namespace roster
 
